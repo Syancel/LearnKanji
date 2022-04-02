@@ -1,7 +1,7 @@
 from django.db import models
 
 class Kunyomi(models.Model):
-    kunyomi = models.CharField(max_length=50)
+    kunyomi = models.CharField(max_length=50, unique=True)
 
     class Meta:
         db_table = 'kunyomi'
@@ -10,7 +10,7 @@ class Kunyomi(models.Model):
         return self.kunyomi
 
 class Onyomi(models.Model):
-    onyomi = models.CharField(max_length=50)
+    onyomi = models.CharField(max_length=50, unique=True)
 
     class Meta:
         db_table = 'onyomi'
@@ -19,7 +19,7 @@ class Onyomi(models.Model):
         return self.onyomi
 
 class Meaning(models.Model):
-    meaning = models.CharField(max_length=255)
+    meaning = models.CharField(max_length=255, unique=True)
 
     class Meta:
         db_table = 'meaning'
@@ -28,7 +28,7 @@ class Meaning(models.Model):
         return self.meaning
 
 class Kanji(models.Model):
-    symbol = models.CharField(max_length=10)
+    symbol = models.CharField(max_length=10, unique=True)
     jlpt = models.IntegerField()
     kunyomis = models.ManyToManyField(Kunyomi, related_name='kanji_kunyomi')
     onyomis = models.ManyToManyField(Onyomi, related_name='kanji_onyomi')
