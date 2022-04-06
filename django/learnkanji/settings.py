@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'quiz.apps.QuizConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -76,7 +77,12 @@ WSGI_APPLICATION = 'learnkanji.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': BASE_DIR / 'kanjis.db',
+        # 'NAME': 'kanjilearning',
+        # 'USER': 'kanji_admin',
+        # 'PASSWORD': 'lf7_kanji',
+        # 'HOST': 'kanjilearning.cluster-cnuwlg1h2gxs.eu-central-1.rds.amazonaws.com',
+        # 'PORT': '3306',
     }
 }
 
