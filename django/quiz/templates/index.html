@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kanji Quiz</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}"/>
     <style>
         body {
             height: 100vh;
@@ -16,11 +18,47 @@
             display: grid;
             place-items: center;
         }
+
+        .quiz-container form input {
+            line-height: 1.5rem;
+            width: 100%;
+            margin-top: 25px;
+        }
+
+        .quiz-container > div {
+            width: 40%;
+        }
+
+        #kanji {
+            font-size: 5rem; /* 36px */
+            font-weight: bold;
+            text-align: center;
+        }
+
+        #answer {
+            border-radius: 5px;
+            padding: 5px;
+        }
     </style>
 </head>
 <body>
     <div class="quiz-container">
-        <p>{{ kanji }}</p>
+        <div>
+            <p id="kanji">{{ kanji }}</p>
+            <!-- {% for meaning in meanings %}
+            <p>{{ meaning }}</p>
+            {% endfor %}
+            <p>{{ kunyomis }}</p>
+            <p>{{ onyomis }}</p> -->
+            <form action="/" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="kanji" value="{{ kanji }}">
+                <input type="hidden" name="meanings" value="{{ meanings }}">
+                <input type="hidden" name="onyomis" value="{{ onyomis }}">
+                <input type="hidden" name="kunyomis" value="{{ kunyomis }}">
+                <input type="text" placeholder="Type meaning..." name="answer" id="answer" required>
+            </form>
+        </div>
     </div>
 </body>
 </html>

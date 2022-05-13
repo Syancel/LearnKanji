@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <style>
+        body {
+            height: 100vh;
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+            background-color: blue;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+
+        .feedback-container {
+            height: 100%;
+            display: grid;
+            place-items: center;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="feedback-container">
+        <div>
+            {% if status %}
+            <p>Correct!</p>
+            {% else %}
+            <p>False!</p>
+            {% endif %}
+            <a href="/">Next</a>
+        </div>
+    </div>
+</body>
+</html>
