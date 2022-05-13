@@ -37,7 +37,7 @@
 
         #answer {
             border-radius: 5px;
-            padding: 5px;
+            padding: 8px 15px;
         }
     </style>
 </head>
@@ -45,17 +45,9 @@
     <div class="quiz-container">
         <div>
             <p id="kanji">{{ kanji }}</p>
-            <!-- {% for meaning in meanings %}
-            <p>{{ meaning }}</p>
-            {% endfor %}
-            <p>{{ kunyomis }}</p>
-            <p>{{ onyomis }}</p> -->
             <form action="/" method="POST">
                 {% csrf_token %}
-                <input type="hidden" name="kanji" value="{{ kanji }}">
-                <input type="hidden" name="meanings" value="{{ meanings }}">
-                <input type="hidden" name="onyomis" value="{{ onyomis }}">
-                <input type="hidden" name="kunyomis" value="{{ kunyomis }}">
+                <input type="hidden" name="kanji_id" value="{{ kanji_id }}">
                 <input type="text" placeholder="Type meaning..." name="answer" id="answer" required>
             </form>
         </div>

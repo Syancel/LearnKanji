@@ -17,6 +17,7 @@
             background-color: blue;
             padding: 10px 15px;
             border-radius: 5px;
+            font-size: 1.5rem;
         }
 
         .feedback-container {
@@ -25,17 +26,51 @@
             place-items: center;
             text-align: center;
         }
+
+        .correct {
+            font-size: 3rem;
+            color: green;
+            margin: 1rem;
+        }
+
+        .false {
+            font-size: 3rem;
+            color: red;
+            margin: 1rem;
+        }
+
+        .feedback {
+            margin-bottom: 30px;
+        }
+
+        .solutions span:first-child {
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
     <div class="feedback-container">
         <div>
             {% if status %}
-            <p>Correct!</p>
+            <p class="correct">Correct!</p>
             {% else %}
-            <p>False!</p>
+            <div class="feedback">
+                <p class="false">False!</p>
+                <div class="solutions">
+                    <span>Possible solutions:</span>
+                    {% for meaning in meanings %}
+                    {% if forloop.last %}
+                    <span>{{ meaning }}</span>
+                    {% else %}
+                    <span>{{ meaning }}, </span>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
             {% endif %}
-            <a href="/">Next</a>
+            <div>
+                <a href="/">Next</a>
+            </div>
         </div>
     </div>
 </body>

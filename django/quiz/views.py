@@ -14,21 +14,32 @@ class QuizView(View):
         kanji_id = random.randint(1, Kanji.objects.all().count())
         try:
             kanji = Kanji.objects.get(pk=kanji_id)
+        except Kanji.DoesNotExist:
+            raise Http404("Kanji does not exist")
+        return render(request, self.template_name, {
+            'kanji_id': kanji_id,
+            'kanji': kanji,
+            })
+
+    def post(self, request, *args, **kwargs):
+        kanji_id = request.POST.get('kanji_id')
+        answer = request.POST.get('answer')
+        is_correct = False
+        try:
+            kanji = Kanji.objects.get(pk=kanji_id)
             meanings = kanji.meanings.all()
             onyomis = kanji.onyomis.all()
             kunyomis = kanji.kunyomis.all()
         except Kanji.DoesNotExist:
             raise Http404("Kanji does not exist")
-        return render(request, self.template_name, {
-            'kanji': kanji,
-            'meanings': meanings,
-            'onyomis': onyomis,
-            'kunyomis': kunyomis,
-            })
 
-    def post(self, request, *args, **kwargs):
-        print(request.POST)
-        if request.POST.get('answer') in request.POST.get('meanings'):
+        print('Answer: ' + answer)
+        for meaning in meanings:
+            if answer == meaning.meaning:
+                is_correct = True
+                break
+        
+        if is_correct is True:
             return render(request, 'feedback.html', {'status': True})
         else:
-            return render(request, 'feedback.html', {'status': False})
+            return render(request, 'feedback.html', {'status': False, 'meanings': meanings})
