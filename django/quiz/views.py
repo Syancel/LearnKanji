@@ -33,7 +33,6 @@ class QuizView(View):
         except Kanji.DoesNotExist:
             raise Http404("Kanji does not exist")
 
-        print('Answer: ' + answer)
         for meaning in meanings:
             if answer == meaning.meaning:
                 is_correct = True
@@ -42,4 +41,4 @@ class QuizView(View):
         if is_correct is True:
             return render(request, 'feedback.html', {'status': True})
         else:
-            return render(request, 'feedback.html', {'status': False, 'meanings': meanings})
+            return render(request, 'feedback.html', {'status': False, 'meanings': meanings, 'kanji': kanji})
