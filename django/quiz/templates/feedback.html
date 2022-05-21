@@ -43,6 +43,10 @@
             margin-bottom: 30px;
         }
 
+        .solutions {
+            margin: 20px;
+        }
+
         .solutions span:first-of-type {
             font-weight: bold;
         }
@@ -57,6 +61,17 @@
         <div>
             {% if status %}
             <p class="correct">Correct!</p>
+            <div class="solutions">
+                <p class="kanji">{{ kanji }}</p>
+                <span>Possible solutions:</span>
+                {% for meaning in meanings %}
+                {% if forloop.last %}
+                <span>{{ meaning }}</span>
+                {% else %}
+                <span>{{ meaning }}, </span>
+                {% endif %}
+                {% endfor %}
+            </div>
             {% else %}
             <div class="feedback">
                 <p class="false">False!</p>
