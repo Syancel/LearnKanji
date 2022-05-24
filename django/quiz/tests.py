@@ -17,7 +17,7 @@ class QuizTestCase(TestCase):
         self.kanji.onyomis.set([self.onyomi])
         self.kanji.meanings.set([self.meaning])
 
-
+    # Model tests
     def test_kunyomi_has_kunyomi(self):
         self.assertEqual(self.kunyomi.kunyomi, 'き')
 

@@ -7,43 +7,7 @@
     <title>Kanji Quiz</title>
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}"/>
-    <style>
-        body {
-            height: 100vh;
-            margin: 0;
-        }
-
-        .quiz-container {
-            height: 100%;
-            display: grid;
-            place-items: center;
-        }
-
-        .quiz-container form input {
-            line-height: 1.5rem;
-            width: 100%;
-            margin-top: 25px;
-        }
-
-        .quiz-container > div {
-            width: 40%;
-        }
-
-        #kanji {
-            font-size: 5rem; /* 36px */
-            font-weight: bold;
-            text-align: center;
-        }
-
-        #answer {
-            border-radius: 5px;
-            padding: 8px 15px;
-        }
-
-        #settings {
-
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
 </head>
 <body>
     <div id="settings">
