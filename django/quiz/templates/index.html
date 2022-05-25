@@ -13,8 +13,9 @@
     <div id="settings">
         <details id="menu_details">
             <summary>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 18" height="12"><path id="svg_path" d="M21 1H1M21 9H1M21 17H1" stroke="#29293a" stroke-width="1.5" stroke-linecap="square"></path></svg>  Settings
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 18" height="20"><path id="svg_path" d="M21 1H1M21 9H1M21 17H1" stroke="#fff" stroke-width="2" stroke-linecap="square"></path></svg>
             </summary>
+            <div id="dropdown"></div>
         </details>
     </div>
     <div class="quiz-container">
@@ -23,7 +24,7 @@
             <form action="/" method="POST">
                 {% csrf_token %}
                 <input type="hidden" name="kanji_id" value="{{ kanji_id }}">
-                <input type="text" placeholder="Type meaning..." name="answer" id="answer" required>
+                <input type="text" placeholder="Type meaning..." name="answer" id="answer" autocomplete="off" required>
             </form>
         </div>
     </div>

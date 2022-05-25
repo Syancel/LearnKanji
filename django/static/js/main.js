@@ -9,14 +9,16 @@ tbody.appendChild(create_table_row(null, ["pronunciation_m", "Multiple-Choice"])
 tbody.appendChild(create_table_row(null, ["pronunciation_i", "Input"]));
 table.appendChild(tbody);
 
-let menu_details = document.getElementById('menu_details');
-menu_details.appendChild(table);
+let dropdown = document.getElementById('dropdown');
+dropdown.appendChild(table);
 
 //optionaler Bestätigungsbutton, sonst neue Einstellungen bei jedem Change-Ereignis ändern:
 let submit = document.createElement("button");
 submit.id = "submit_button";
-submit.textContent = "Choose";
-menu_details.appendChild(submit);
+submit.classList.add('btn');
+submit.classList.add('glow-rose');
+submit.textContent = "Submit";
+dropdown.appendChild(submit);
 document.getElementById("submit_button").addEventListener("click", function(){
     return; //Einstellungen übernehmen
 });
@@ -128,3 +130,11 @@ function setting(option) {
         check(["meaning", "meaning_i"]);
     }
 }
+
+let answer = document.getElementById('answer');
+answer.addEventListener('focus', () => {
+    answer.classList.add('glow-rose');
+})
+answer.addEventListener('blur', () => {
+    answer.classList.remove('glow-rose');
+})
