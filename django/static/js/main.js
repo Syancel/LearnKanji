@@ -9,13 +9,14 @@ tbody.appendChild(create_table_row(null, ["pronunciation_m", "Multiple-Choice"])
 tbody.appendChild(create_table_row(null, ["pronunciation_i", "Input"]));
 table.appendChild(tbody);
 
-document.getElementById('menu_details').appendChild(table);
+let menu_details = document.getElementById('menu_details');
+menu_details.appendChild(table);
 
 //optionaler Bestätigungsbutton, sonst neue Einstellungen bei jedem Change-Ereignis ändern:
 let submit = document.createElement("button");
 submit.id = "submit_button";
 submit.textContent = "Choose";
-menuMenu.appendChild(submit);
+menu_details.appendChild(submit);
 document.getElementById("submit_button").addEventListener("click", function(){
     return; //Einstellungen übernehmen
 });
