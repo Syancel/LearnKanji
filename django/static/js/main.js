@@ -1,9 +1,5 @@
-let settingsMenu = document.getElementById('settings');
-let menuMenu = document.createElement("div");
-menuMenu.id = "menu_div";
 let table = document.createElement("table");
 table.id = "menu_tbl";
-
 let tbody = document.createElement("tbody");
 tbody.appendChild(create_table_row("meaning", "Meaning"));
 tbody.appendChild(create_table_row(null, ["meaning_m", "Multiple-Choice"]));
@@ -12,9 +8,8 @@ tbody.appendChild(create_table_row("pronunciation", "Pronunciation"));
 tbody.appendChild(create_table_row(null, ["pronunciation_m", "Multiple-Choice"]));
 tbody.appendChild(create_table_row(null, ["pronunciation_i", "Input"]));
 table.appendChild(tbody);
-menuMenu.appendChild(table);
 
-settingsMenu.appendChild(menuMenu);
+document.getElementById('menu_details').appendChild(table);
 
 //optionaler Bestätigungsbutton, sonst neue Einstellungen bei jedem Change-Ereignis ändern:
 let submit = document.createElement("button");

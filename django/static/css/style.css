@@ -29,3 +29,10 @@ body {
     border-radius: 5px;
     padding: 8px 15px;
 }
+
+summary {
+    list-style: none;
+}
+summary::-webkit-details-marker {
+    display: none; 
+}
