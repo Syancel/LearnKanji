@@ -24,7 +24,6 @@ document.getElementById("submit_button").addEventListener("click", function(){
 if (localStorage.getItem("selection") != null) {
     let selection = localStorage.getItem("selection");
     setting(selection);
-    console.log(selection);
 }
 else {
     setting("meaning_m");
