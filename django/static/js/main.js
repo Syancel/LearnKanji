@@ -16,7 +16,6 @@ dropdown.appendChild(table);
 let submit = document.createElement("button");
 submit.id = "submit_button";
 submit.classList.add('btn');
-submit.classList.add('glow-rose');
 submit.textContent = "Submit";
 dropdown.appendChild(submit);
 document.getElementById("submit_button").addEventListener("click", function(){
