@@ -57,6 +57,7 @@ a {
     border: none;
     text-align: center;
     font-size: 1.2rem;
+    border: 1px solid transparent;
 }
 
 .glow-rose {
@@ -64,7 +65,9 @@ a {
 }
 
 #answer:focus {
-    outline: none;
+    outline: none; 
+    border: 1px solid;
+    border-color: transparent transparent var(--rose-500) transparent;
 }
 
 #settings {

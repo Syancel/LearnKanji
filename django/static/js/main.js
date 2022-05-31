@@ -132,8 +132,10 @@ function setting(option) {
 
 let answer = document.getElementById('answer');
 answer.addEventListener('focus', () => {
-    answer.classList.add('glow-rose');
+    // answer.classList.add('glow-rose');
+    answer.classList.add('input-border');
 })
 answer.addEventListener('blur', () => {
-    answer.classList.remove('glow-rose');
+    // answer.classList.remove('glow-rose');
+    answer.classList.remove('input-border');
 })
